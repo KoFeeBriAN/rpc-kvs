@@ -2,6 +2,7 @@ package distkvs
 
 import (
 	"errors"
+	"io"
 	"log"
 	"net"
 	"net/http"
@@ -72,7 +73,11 @@ func (*Storage) Start(frontEndAddr string, storageAddr string, diskPath string, 
 	}
 	count, err := file.Read(data)
 	if err != nil {
-		log.Fatal(err)
+		if err == io.EOF {
+			log.Println(err)
+		} else {
+			log.Fatal(err)
+		}
 	}
 
 	var key string
@@ -164,7 +169,7 @@ func (*Storage) StoragePut(args StoragePut, reply *string) error {
 			s = "cannot open file"
 		}
 		defer file.Close()
-		if _, err := file.WriteString(args.Key + ";" + args.Value); err != nil {
+		if _, err := file.WriteString(args.Key + ";" + args.Value + "\n"); err != nil {
 			log.Fatal(err)
 			s = "cannot write"
 		}
