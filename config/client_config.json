@@ -1,4 +1,4 @@
 {
-  "ClientID": "client1",
-  "FrontEndAddr": ":8000"
+	"ClientID": "client1",
+	"FrontEndAddr": ":8000"
 }

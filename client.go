@@ -40,7 +40,8 @@ func (c *Client) Initialize() error {
 	// Call KVS initialize here
 	notifyCh, err := c.kvs.Initialize(c.id, c.frontEndAddr, ChCapacity)
 	if err != nil {
-		return errors.New("kvs initialize error")
+		return err
+		// return errors.New("kvs initialize error")
 	}
 	c.NotifyChannel = notifyCh
 

@@ -24,4 +24,5 @@
 **/values.dev.yaml
 README.md
 
-**/k8s
+k8s/
+kn/

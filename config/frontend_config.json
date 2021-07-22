@@ -1,4 +1,4 @@
 {
-  "ClientAPIListenAddr": ":8000",
-  "StorageAPIListenAddr": ":8001"
+	"ClientAPIListenAddr": ":50051",
+	"StorageAPIListenAddr": ":8001"
 }
